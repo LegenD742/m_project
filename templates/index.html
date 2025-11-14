@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-clone Multi-Language clone detection</title>
+    <meta name="description"
+        content="Advanced code clone detection across Python, C++, Java, and JavaScript with GitHub repository analysis">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563eb",
+                        secondary: "#1e40af",
+                        accent: "#3b82f6"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-code text-white text-lg"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold text-gray-800">X-clone</h1>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Features</a>
+                    <a href="#"
+                        class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Documentation</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">API</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button class="px-4 py-2 text-gray-600 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span class="ml-2">Login</span>
+                    </button>
+                    <button class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <!-- <h2 class="text-4xl md:text-5xl font-bold mb-6">Detect Code Clones Across Multiple Languages</h2> -->
+            <h2 id="typingHeading" class="text-4xl md:text-5xl font-bold mb-6 h-20"></h2>
+
+            <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                Advanced similarity analysis for Python, C++, Java, and JavaScript.
+                Compare against GitHub repositories and get detailed clone reports.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4">
+                    <i class="fas fa-code-branch text-2xl mb-2"></i>
+                    <h3 class="font-semibold">Type-1 Detection</h3>
+                    <p class="text-sm text-blue-100">Identical code fragments</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4">
+                    <i class="fas fa-exchange-alt text-2xl mb-2"></i>
+                    <h3 class="font-semibold">Type-2 Detection</h3>
+                    <p class="text-sm text-blue-100">Structurally similar code</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4">
+                    <i class="fas fa-project-diagram text-2xl mb-2"></i>
+                    <h3 class="font-semibold">Type-3 Detection</h3>
+                    <p class="text-sm text-blue-100">Semantically similar code</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4">
+                    <i class="fas fa-globe text-2xl mb-2"></i>
+                    <h3 class="font-semibold">Cross-Language</h3>
+                    <p class="text-sm text-blue-100">Multi-language analysis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Analysis Section -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Input Section -->
+            <div class="lg:col-span-2 bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Analyze Your Code</h3>
+
+                <!-- Language Selection -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-3">Select Programming Language</label>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <button
+                            class="language-btn py-3 px-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 transition-colors text-gray-700"
+                            data-lang="python">
+                            <i class="fab fa-python text-2xl mb-2"></i>
+                            <span>Python</span>
+                        </button>
+                        <button
+                            class="language-btn py-3 px-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 transition-colors text-gray-700"
+                            data-lang="cpp">
+                            <i class="fas fa-copyright text-2xl mb-2"></i>
+                            <span>C++</span>
+                        </button>
+                        <button
+                            class="language-btn py-3 px-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 transition-colors text-gray-700"
+                            data-lang="java">
+                            <i class="fab fa-java text-2xl mb-2"></i>
+                            <span>Java</span>
+                        </button>
+                        <button
+                            class="language-btn py-3 px-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 transition-colors text-gray-700"
+                            data-lang="javascript">
+                            <i class="fab fa-js-square text-2xl mb-2"></i>
+                            <span>JavaScript</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Code Input -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-3">Enter Your Code</label>
+                    <textarea id="codeInput"
+                        class="w-full h-64 p-4 border border-gray-300 rounded-lg font-mono text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Paste your code here for clone detection analysis..."></textarea>
+                </div>
+
+                <!-- GitHub URL Input -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-3">Or Provide GitHub Repository URL</label>
+                    <div class="flex space-x-3">
+                        <input type="text" id="githubUrl"
+                            class="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            placeholder="https://github.com/username/repository">
+                        <button class="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                            Fetch Code
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Analysis Options -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-3">Clone Detection Types</label>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            <span class="ml-2 text-gray-700">Type-1: Identical code fragments</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            <span class="ml-2 text-gray-700">Type-2: Renamed identifiers</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+
+                            <span class="ml-2 text-gray-700">Type-3: Modified code structure</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Analyze Button -->
+                <button id="analyzeBtn"
+                    class="w-full py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg">
+                    <i class="fas fa-search mr-2"></i>
+                    Analyze Code for Clones
+                </button>
+            </div>
+
+            <!-- Results Panel -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Analysis Results</h3>
+
+                <!-- Overall Similarity -->
+                <div class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm font-medium text-gray-700">Overall Similarity</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-4">
+                        <div id="similarityBar" class="bg-green-500 h-4 rounded-full transition-all duration-1000"
+                            style="width: 0%"></div>
+                    </div>
+                    <div id="similarityText" class="text-center mt-2 text-sm text-gray-600">Click Analyze to see results
+                    </div>
+                </div>
+
+                <!-- Clone Type Breakdown -->
+                <div class="mb-6">
+                    <h4 class="font-semibold text-gray-700 mb-3">Clone Type Analysis</h4>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Type-1 Clones</span>
+                                <span id="type1Percent">0%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div id="type1Bar" class="bg-red-500 h-2 rounded-full transition-all duration-1000"
+                                    style="width: 0%"></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span>Type-2 Clones</span>
+                                    <span id="type2Percent">0%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div id="type2Bar"
+                                        class="bg-yellow-500 h-2 rounded-full transition-all duration-1000"
+                                        style="width: 0%"></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span>Type-3 Clones</span>
+                                        <span id="type3Percent">0%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div id="type3Bar"
+                                            class="bg-blue-500 h-2 rounded-full transition-all duration-1000"
+                                            style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Matched Repositories -->
+                            <div>
+                                <h4 class="font-semibold text-gray-700 mb-3">Matched Code Sources</h4>
+                                <div id="matchesList" class="space-y-3">
+                                    <div class="text-center py-8 text-gray-500">
+                                        <i class="fas fa-code text-3xl mb-3"></i>
+                                        <p>No matches found yet</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Features Section -->
+                        <section class="mt-16">
+                            <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Advanced Clone Detection
+                                Features</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                                        <i class="fas fa-clone text-red-600"></i>
+                                    </div>
+                                    <h4 class="font-semibold text-gray-800 mb-2">Multi-Language Support</h4>
+                                    <p class="text-gray-600 text-sm">Detect clones across Python, C++, Java, and
+                                        JavaScript with language-specific parsing.</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                                    <div
+                                        class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                                        <i class="fas fa-database text-green-600"></i>
+                                    </div>
+                                    <h4 class="font-semibold text-gray-800 mb-2">GitHub Integration</h4>
+                                    <p class="text-gray-600 text-sm">Compare against millions of public repositories
+                                        using GitHub's extensive code database.</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                                        <i class="fas fa-chart-bar text-blue-600"></i>
+                                    </div>
+                                    <h4 class="font-semibold text-gray-800 mb-2">Detailed Reports</h4>
+                                    <p class="text-gray-600 text-sm">Get comprehensive similarity percentages and direct
+                                        links to matching code sources.</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                                    <div
+                                        class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                                        <i class="fas fa-bolt text-purple-600"></i>
+                                    </div>
+                                    <h4 class="font-semibold text-gray-800 mb-2">Real-time Analysis</h4>
+                                    <p class="text-gray-600 text-sm">Fast processing with real-time progress updates and
+                                        immediate result delivery.</p>
+                                </div>
+                            </div>
+                        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h5 class="font-semibold mb-4">X-clone</h5>
+                    <p class="text-gray-400 text-sm">
+                        Advanced code similarity detection across multiple programming languages with GitHub
+                        integration.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4">Features</h5>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Type-1 Detection</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Type-2 Detection</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Type-3 Detection</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Cross-Language</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4">Supported Languages</h5>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4">Connect</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-github text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2024 X-clone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const languageButtons = document.querySelectorAll('.language-btn');
+            let selectedLanguage = 'python';
+
+            languageButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    languageButtons.forEach(btn => {
+                        btn.classList.remove('border-blue-500', 'bg-blue-50');
+                        btn.classList.add('border-gray-200');
+                    });
+                    button.classList.remove('border-gray-200');
+                    button.classList.add('border-blue-500', 'bg-blue-50');
+                    selectedLanguage = button.dataset.lang;
+                });
+            });
+            languageButtons[0].classList.add('border-blue-500', 'bg-blue-50');
+
+        
+                const text = "Detect Cross Language Code Clones";
+                const heading = document.getElementById("typingHeading");
+                let i = 0;
+
+                function typeOnce() {
+        if (i < text.length) {
+                    heading.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeOnce, 40); // typing speed
+        }
+    }
+
+    window.addEventListener("load", () => {
+                    typeOnce(); 
+    });
+        
+
+
+
+    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
